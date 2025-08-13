@@ -58,3 +58,6 @@ venv.bak/
 
 # FastAPI
 .pytest_cache/
+
+# Amazon Q
+.amazonq/
