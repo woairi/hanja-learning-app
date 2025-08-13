@@ -35,7 +35,7 @@ async def lifespan(app: FastAPI):
     global hanja_data, hanja_word_data
     try:
         # 한자 데이터 로드
-        df = pd.read_csv("../hanja.csv", on_bad_lines='skip', encoding='utf-8')
+        df = pd.read_csv("hanja.csv", on_bad_lines='skip', encoding='utf-8')
         hanja_data = [
             HanjaModel(
                 grade=row["급수"],
@@ -48,7 +48,7 @@ async def lifespan(app: FastAPI):
         print(f"한자 데이터 {len(hanja_data)}개 로드 완료")
         
         # 한자어 데이터 로드
-        word_df = pd.read_csv("../hanjaword.csv", encoding='utf-8')
+        word_df = pd.read_csv("hanjaword.csv", encoding='utf-8')
         hanja_word_data = [
             {
                 "grade": row["급수"],
