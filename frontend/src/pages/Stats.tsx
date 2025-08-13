@@ -19,7 +19,7 @@ const Stats: React.FC = () => {
   const gradeOrder = ["준8급", "8급", "준7급", "7급", "준6급", "6급", "준5급", "5급", "준4급", "4급"];
   const sortedProgress = gradeOrder
     .filter(gradeKey => progressData[gradeKey])
-    .map(gradeKey => ({ grade: gradeKey, ...progressData[gradeKey] }));
+    .map(gradeKey => ({ gradeLevel: gradeKey, ...progressData[gradeKey] }));
 
   return (
     <div className="stats">
@@ -69,9 +69,9 @@ const Stats: React.FC = () => {
           <h2>급수별 학습 진도</h2>
           <div className="progress-list">
             {sortedProgress.map((progress) => (
-              <div key={progress.grade} className="progress-item">
+              <div key={progress.gradeLevel} className="progress-item">
                 <div className="progress-header">
-                  <span className="grade-name">{progress.grade}</span>
+                  <span className="grade-name">{progress.gradeLevel}</span>
                   <span className="progress-percent">
                     {Math.round((progress.completedCount / progress.totalCount) * 100)}%
                   </span>
