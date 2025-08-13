@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: hanja-backend
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./hanja.csv:/app/hanja.csv
+      - ./hanjaword.csv:/app/hanjaword.csv
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: hanja-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

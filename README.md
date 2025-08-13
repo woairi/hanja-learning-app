@@ -47,12 +47,29 @@
 
 ## 🚀 설치 및 실행
 
-### 사전 요구사항
+### 🐳 Docker로 빠른 시작 (추천)
+
+```bash
+# 저장소 클론
+git clone https://github.com/woairi/hanja-learning-app.git
+cd hanja-learning-app
+
+# Docker로 실행
+./deploy.sh
+
+# 접속
+# 프론트엔드: http://localhost
+# 백엔드 API: http://localhost:8001
+```
+
+### 수동 설치
+
+#### 사전 요구사항
 - Python 3.8+
 - Node.js 16+
 - npm 또는 yarn
 
-### 백엔드 실행
+#### 백엔드 실행
 
 ```bash
 cd backend
@@ -62,7 +79,7 @@ python main.py
 
 백엔드 서버가 http://localhost:8001 에서 실행됩니다.
 
-### 프론트엔드 실행
+#### 프론트엔드 실행
 
 ```bash
 cd frontend
@@ -78,7 +95,8 @@ npm run dev
 hanja_amazonq/
 ├── backend/
 │   ├── main.py              # FastAPI 메인 애플리케이션
-│   └── requirements.txt     # Python 의존성
+│   ├── requirements.txt     # Python 의존성
+│   └── Dockerfile           # 백엔드 Docker 설정
 ├── frontend/
 │   ├── src/
 │   │   ├── components/      # React 컴포넌트
@@ -91,12 +109,19 @@ hanja_amazonq/
 │   │   ├── App.tsx         # 메인 App 컴포넌트
 │   │   ├── App.css         # 전역 스타일
 │   │   └── main.tsx        # React 엔트리 포인트
+│   ├── Dockerfile           # 프론트엔드 Docker 설정
+│   ├── nginx.conf           # Nginx 설정
 │   ├── index.html          # HTML 템플릿
 │   ├── package.json        # Node.js 의존성
 │   ├── vite.config.ts      # Vite 설정
 │   └── tsconfig.json       # TypeScript 설정
+├── docker-compose.yml      # Docker Compose 설정
+├── deploy.sh               # 배포 스크립트
+├── .dockerignore           # Docker 제외 파일
 ├── hanja.csv               # 한자 데이터 (1000개)
+├── hanjaword.csv           # 한자어 데이터 (313개)
 ├── README.md               # 프로젝트 문서
+├── README-DOCKER.md        # Docker 배포 가이드
 └── TODO.md                 # 향후 개발 계획
 ```
 
