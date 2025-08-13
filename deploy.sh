@@ -15,7 +15,7 @@ echo "🔄 새 컨테이너 시작 중..."
 docker compose up -d
 
 echo "✅ 배포 완료!"
-echo "🌐 프론트엔드: http://localhost"
+echo "🌐 프론트엔드: http://localhost:7780"
 echo "🔧 백엔드 API: http://localhost:7781"
 
 # 컨테이너 상태 확인
