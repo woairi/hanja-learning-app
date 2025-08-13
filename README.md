@@ -58,8 +58,8 @@ cd hanja-learning-app
 ./deploy.sh
 
 # 접속
-# 프론트엔드: http://localhost
-# 백엔드 API: http://localhost:8001
+# 프론트엔드: http://localhost:7780
+# 백엔드 API: http://localhost:7781
 ```
 
 ### 수동 설치
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-백엔드 서버가 http://localhost:8001 에서 실행됩니다.
+백엔드 서버가 http://localhost:7781 에서 실행됩니다.
 
 #### 프론트엔드 실행
 
@@ -88,6 +88,20 @@ npm run dev
 ```
 
 프론트엔드가 http://localhost:5173 에서 실행됩니다.
+
+### Docker 배포
+
+```bash
+# 원클릭 배포
+./deploy.sh
+
+# 또는 수동 배포
+docker compose build
+docker compose up -d
+```
+
+- **프론트엔드**: http://localhost:7780
+- **백엔드 API**: http://localhost:7781
 
 ## 📁 프로젝트 구조
 
