@@ -5,7 +5,7 @@ services:
     build: ./backend
     container_name: hanja-backend
     ports:
-      - "8001:8001"
+      - "7781:7781"
     volumes:
       - ./hanja.csv:/app/hanja.csv
       - ./hanjaword.csv:/app/hanjaword.csv

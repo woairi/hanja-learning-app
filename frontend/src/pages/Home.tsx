@@ -7,6 +7,7 @@ const Home: React.FC = () => {
   const [grades, setGrades] = useState<Grade[]>([]);
   const [selectedGrade, setSelectedGrade] = useState<string>('');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>('');
 
   const getGradeEmoji = (index: number): string => {
     const emojis = ['🌱', '🌿', '🌳', '🏆', '💎', '👑', '🌟', '🚀', '🎊', '🎉'];
@@ -17,9 +18,11 @@ const Home: React.FC = () => {
     const fetchGrades = async () => {
       try {
         const gradesData = await hanjaApi.getGrades();
+        console.log('급수 데이터:', gradesData);
         setGrades(gradesData);
       } catch (error) {
         console.error('급수 목록 로드 실패:', error);
+        setError('급수 목록을 불러오는데 실패했습니다. 백엔드 서버를 확인해주세요.');
       } finally {
         setLoading(false);
       }
@@ -34,6 +37,26 @@ const Home: React.FC = () => {
 
   if (loading) {
     return <div className="loading">로딩 중...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="error">
+        <h2>오류 발생</h2>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>다시 시도</button>
+      </div>
+    );
+  }
+
+  if (grades.length === 0) {
+    return (
+      <div className="error">
+        <h2>급수 데이터 없음</h2>
+        <p>급수 데이터를 찾을 수 없습니다. 백엔드 서버와 CSV 파일을 확인해주세요.</p>
+        <button onClick={() => window.location.reload()}>다시 시도</button>
+      </div>
+    );
   }
 
   return (
