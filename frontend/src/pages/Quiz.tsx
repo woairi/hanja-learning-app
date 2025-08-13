@@ -110,7 +110,7 @@ const Quiz: React.FC = () => {
   const resetQuiz = () => {
     setCurrentQuestionIndex(0);
     setSelectedAnswer('');
-    setScore(0);
+
     setShowResult(false);
     setAnswers(new Array(questions.length).fill(''));
     setShowAnswerResult(false);

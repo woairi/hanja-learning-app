@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getStudyStats, getStudyProgress, getQuizResults, getWrongAnswers, formatStudyTime, StudyStats, StudyProgress, QuizResult } from '../utils/storage';
+import { getStudyStats, getStudyProgress, getQuizResults, getWrongAnswers, StudyStats, StudyProgress, QuizResult } from '../utils/storage';
 
 const Stats: React.FC = () => {
   const [stats, setStats] = useState<StudyStats | null>(null);
@@ -123,15 +123,15 @@ const Stats: React.FC = () => {
       <div className="wrong-answers-section">
         <h2>틀린 문제 복습</h2>
         <div className="grade-review-buttons">
-          {gradeOrder.map(grade => {
-            const wrongCount = getWrongAnswers().filter(w => w.grade === grade).length;
+          {gradeOrder.map(gradeKey => {
+            const wrongCount = getWrongAnswers().filter(w => w.grade === gradeKey).length;
             return wrongCount > 0 ? (
               <button 
-                key={grade}
+                key={gradeKey}
                 className="grade-review-button"
-                onClick={() => window.location.href = `/review/${grade}`}
+                onClick={() => window.location.href = `/review/${gradeKey}`}
               >
-                <span className="grade-name">{grade}</span>
+                <span className="grade-name">{gradeKey}</span>
                 <span className="wrong-count">{wrongCount}개</span>
               </button>
             ) : null;
