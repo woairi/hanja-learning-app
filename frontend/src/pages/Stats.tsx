@@ -18,8 +18,8 @@ const Stats: React.FC = () => {
 
   const gradeOrder = ["준8급", "8급", "준7급", "7급", "준6급", "6급", "준5급", "5급", "준4급", "4급"];
   const sortedProgress = gradeOrder
-    .filter(grade => progressData[grade])
-    .map(grade => ({ grade, ...progressData[grade] }));
+    .filter(gradeKey => progressData[gradeKey])
+    .map(gradeKey => ({ grade: gradeKey, ...progressData[gradeKey] }));
 
   return (
     <div className="stats">
@@ -31,14 +31,6 @@ const Stats: React.FC = () => {
       </div>
 
       <div className="stats-grid">
-        <div className="stat-card">
-          <div className="stat-icon">⏱️</div>
-          <div className="stat-content">
-            <div className="stat-value">{formatStudyTime(stats.totalStudyTime)}</div>
-            <div className="stat-label">총 학습 시간</div>
-          </div>
-        </div>
-
         <div className="stat-card">
           <div className="stat-icon">📚</div>
           <div className="stat-content">

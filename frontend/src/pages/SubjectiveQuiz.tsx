@@ -15,7 +15,7 @@ const SubjectiveQuiz: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(true);
   const [answered, setAnswered] = useState(false);
-  const [quizStartTime, setQuizStartTime] = useState(Date.now());
+  const [quizStartTime] = useState(Date.now());
 
   useEffect(() => {
     const fetchQuestions = async () => {

@@ -13,7 +13,7 @@ const HanjaWordQuiz: React.FC = () => {
   const [correctCount, setCorrectCount] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [quizStartTime, setQuizStartTime] = useState(Date.now());
+  const [quizStartTime] = useState(Date.now());
 
   useEffect(() => {
     const fetchQuestions = async () => {

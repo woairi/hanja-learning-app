@@ -13,7 +13,7 @@ const Study: React.FC = () => {
   const [isShuffled, setIsShuffled] = useState(false);
   const [hideReading, setHideReading] = useState(false);
   const [hideMeaning, setHideMeaning] = useState(false);
-  const [studyStartTime, setStudyStartTime] = useState(Date.now());
+  const [studyStartTime] = useState(Date.now());
 
   useEffect(() => {
     const fetchHanja = async () => {

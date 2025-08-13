@@ -9,7 +9,7 @@ const Quiz: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
-  const [score, setScore] = useState(0);
+
   const [showResult, setShowResult] = useState(false);
   const [answers, setAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -161,6 +161,7 @@ const Quiz: React.FC = () => {
       </div>
 
       <div className="question-card">
+        <div className="hanja-character">{currentQuestion.character}</div>
         <div className="question">{currentQuestion.question}</div>
         <div className="options">
           {currentQuestion.options?.map((option, index) => {

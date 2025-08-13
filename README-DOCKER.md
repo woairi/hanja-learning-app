@@ -14,7 +14,7 @@ cd hanja-learning-app
 ./deploy.sh
 
 # 또는 수동 실행
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 3. 접속
@@ -30,22 +30,22 @@ docker-compose up -d
 
 ### 빌드
 ```bash
-docker-compose build
+docker compose build
 ```
 
 ### 실행
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 중지
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### 로그 확인
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
 ## 🔧 환경 설정
@@ -64,34 +64,34 @@ ports:
 
 파일 수정 후 컨테이너 재시작:
 ```bash
-docker-compose restart backend
+docker compose restart backend
 ```
 
 ## 🐛 문제 해결
 
 ### 컨테이너 상태 확인
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 ### 로그 확인
 ```bash
 # 전체 로그
-docker-compose logs
+docker compose logs
 
 # 특정 서비스 로그
-docker-compose logs backend
-docker-compose logs frontend
+docker compose logs backend
+docker compose logs frontend
 ```
 
 ### 컨테이너 재시작
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 ### 완전 재배포
 ```bash
-docker-compose down
-docker-compose build --no-cache
-docker-compose up -d
+docker compose down
+docker compose build --no-cache
+docker compose up -d
 ```
